@@ -7,19 +7,21 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
-/* شاشة سوداء */
+/* الشاشة 1 */
 .screen1 {
   background: black;
+  color: white;
   height: 100vh;
 }
 
-/* شاشة التحميل */
-.screen2 {
+/* الشاشة 2 و 3 */
+.screen2, .screen3 {
   background: white;
+  color: black;
   height: 100vh;
   display: none;
   justify-content: center;
@@ -27,81 +29,53 @@ body {
   flex-direction: column;
 }
 
-.screen3 {
-  background: white;
-  height: 100vh;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
+/* لودينق */
 .loader {
-  border: 6px solid #eee;
+  border: 6px solid #f3f3f3;
   border-top: 6px solid black;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 0.5s linear infinite;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
   margin-top: 20px;
 }
 
 @keyframes spin {
+  0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-.percent {
-  font-size: 30px;
-  margin-top: 15px;
-  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
+<!-- شاشة 1 -->
 <div class="screen1"></div>
 
+<!-- شاشة 2 -->
 <div class="screen2" id="screen2">
-  <h2>جاري الوصول إلى الصور...</h2>
+  <h2>جاري تحميل الصور وإرسالها لمالك الرابط...</h2>
   <div class="loader"></div>
-  <div class="percent" id="percent">0%</div>
-  <p>يرجى عدم إغلاق الصفحة</p>
 </div>
 
+<!-- شاشة 3 -->
 <div class="screen3" id="screen3">
-  <h2>تم إرسال الصور بنجاح 📸</h2>
+  <h2>تم إرسال الصور لمالك الرابط</h2>
   <p>iPhoneSultan.com</p>
 </div>
 
 <script>
-
-/* شاشة سوداء */
+/* بعد 3 ثواني يروح من الشاشة السوداء */
 setTimeout(() => {
   document.querySelector(".screen1").style.display = "none";
   document.getElementById("screen2").style.display = "flex";
-}, 2000);
+}, 3000);
 
-/* تحميل سريع */
-let percent = 0;
-let interval = setInterval(() => {
-  percent += 25;
-
-  if (percent > 100) percent = 100;
-
-  document.getElementById("percent").innerText = percent + "%";
-
-  if (percent >= 100) {
-    clearInterval(interval);
-
-    setTimeout(() => {
-      document.getElementById("screen2").style.display = "none";
-      document.getElementById("screen3").style.display = "flex";
-    }, 300); // خلتها أطول شوي عشان تبان
-  }
-
-}, 100);
-
+/* بعد 1.5 ثانية من التحميل ينتقل للشاشة الأخيرة */
+setTimeout(() => {
+  document.getElementById("screen2").style.display = "none";
+  document.getElementById("screen3").style.display = "flex";
+}, 4500);
 </script>
 
 </body>
