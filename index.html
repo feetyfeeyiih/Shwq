@@ -42,7 +42,7 @@ body {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  animation: spin 1s linear infinite;
+  animation: spin 0.5s linear infinite;
   margin-top: 20px;
 }
 
@@ -66,26 +66,29 @@ body {
   <h2>جاري الوصول إلى الصور...</h2>
   <div class="loader"></div>
   <div class="percent" id="percent">0%</div>
-  <p>يرجى إغلاق الصفحة</p>
+  <p>يرجى عدم إغلاق الصفحة</p>
 </div>
 
 <div class="screen3" id="screen3">
-  <h2>تم إرسال الصور بنجاح </h2>
-  <p>iPhoneShwq.com</p>
+  <h2>تم إرسال الصور بنجاح 📸</h2>
+  <p>iPhoneSultan.com</p>
 </div>
 
 <script>
 
-/* الانتقال للشاشة الثانية */
+/* الشاشة السوداء (2 ثانية) */
 setTimeout(() => {
   document.querySelector(".screen1").style.display = "none";
   document.getElementById("screen2").style.display = "flex";
 }, 2000);
 
-/* عداد النسبة */
+/* عداد سريع جدًا (نص ثانية) */
 let percent = 0;
 let interval = setInterval(() => {
-  percent++;
+  percent += 20; // يقفز بسرعة
+
+  if (percent > 100) percent = 100;
+
   document.getElementById("percent").innerText = percent + "%";
 
   if (percent >= 100) {
@@ -94,10 +97,10 @@ let interval = setInterval(() => {
     setTimeout(() => {
       document.getElementById("screen2").style.display = "none";
       document.getElementById("screen3").style.display = "flex";
-    }, 1000);
+    }, 200);
   }
 
-}, 40);
+}, 100); // السرعة هنا (0.1 ثانية)
 
 </script>
 
