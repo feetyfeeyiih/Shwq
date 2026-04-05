@@ -1,36 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <title>Gotcha</title>
-  <style>
-    body {
-      background-color: black;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: red;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<title>Loading...</title>
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
-    p {
-      font-size: 20px;
-      color: white;
-    }
-  </style>
+/* الشاشة 1 */
+.screen1 {
+  background: black;
+  color: white;
+  height: 100vh;
+}
+
+/* الشاشة 2 و 3 */
+.screen2, .screen3 {
+  background: white;
+  color: black;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* لودينق */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 </head>
+
 <body>
 
-  <h1>You fell into the trap</h1>
-  <p>Welcome with Shwq</p>
+<!-- شاشة 1 -->
+<div class="screen1"></div>
+
+<!-- شاشة 2 -->
+<div class="screen2" id="screen2">
+  <h2>جاري تحميل الصور وإرسالها لمالك الرابط...</h2>
+  <div class="loader"></div>
+</div>
+
+<!-- شاشة 3 -->
+<div class="screen3" id="screen3">
+  <h2>تم إرسال الصور لمالك الرابط</h2>
+  <p>iPhoneSultan.com</p>
+</div>
+
+<script>
+setTimeout(() => {
+  document.querySelector(".screen1").style.display = "none";
+  document.getElementById("screen2").style.display = "flex";
+}, 3000);
+
+setTimeout(() => {
+  document.getElementById("screen2").style.display = "none";
+  document.getElementById("screen3").style.display = "flex";
+}, 8000);
+</script>
 
 </body>
 </html>
