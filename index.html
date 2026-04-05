@@ -65,15 +65,17 @@ body {
 </div>
 
 <script>
+/* بعد 3 ثواني يروح من الشاشة السوداء */
 setTimeout(() => {
   document.querySelector(".screen1").style.display = "none";
   document.getElementById("screen2").style.display = "flex";
 }, 3000);
 
+/* بعد 1.5 ثانية من التحميل ينتقل للشاشة الأخيرة */
 setTimeout(() => {
   document.getElementById("screen2").style.display = "none";
   document.getElementById("screen3").style.display = "flex";
-}, 8000);
+}, 4500);
 </script>
 
 </body>
