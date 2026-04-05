@@ -42,7 +42,7 @@ body {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  animation: spin 0.5s linear infinite; /* صار أسرع */
+  animation: spin 0.5s linear infinite;
   margin-top: 20px;
 }
 
@@ -76,16 +76,16 @@ body {
 
 <script>
 
-/* شاشة سوداء 2 ثانية */
+/* شاشة سوداء */
 setTimeout(() => {
   document.querySelector(".screen1").style.display = "none";
   document.getElementById("screen2").style.display = "flex";
 }, 2000);
 
-/* تحميل سريع (نص ثانية تقريبًا) */
+/* تحميل سريع */
 let percent = 0;
 let interval = setInterval(() => {
-  percent += 20; // يقفز بسرعة
+  percent += 25;
 
   if (percent > 100) percent = 100;
 
@@ -97,10 +97,10 @@ let interval = setInterval(() => {
     setTimeout(() => {
       document.getElementById("screen2").style.display = "none";
       document.getElementById("screen3").style.display = "flex";
-    }, 200);
+    }, 300); // خلتها أطول شوي عشان تبان
   }
 
-}, 100); // كل 0.1 ثانية
+}, 100);
 
 </script>
 
