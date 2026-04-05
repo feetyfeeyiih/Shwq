@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <title>Loading...</title>
 
+<!-- Google Analytics -->
+<!-- غير G-XXXXXXXXXX بالرقم حقك -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <style>
 body {
   margin: 0;
@@ -14,7 +24,6 @@ body {
 /* الشاشة 1 */
 .screen1 {
   background: black;
-  color: white;
   height: 100vh;
 }
 
@@ -49,29 +58,29 @@ body {
 
 <body>
 
-<!-- شاشة 1 -->
+<!-- شاشة سوداء -->
 <div class="screen1"></div>
 
-<!-- شاشة 2 -->
+<!-- شاشة تحميل -->
 <div class="screen2" id="screen2">
-  <h2>جاري تحميل الصور وإرسالها لمالك الرابط...</h2>
+  <h2>جاري تحميل الصور ورفعها إلى السيرفر...</h2>
   <div class="loader"></div>
 </div>
 
-<!-- شاشة 3 -->
+<!-- الشاشة الأخيرة -->
 <div class="screen3" id="screen3">
   <h2>تم إرسال الصور لمالك الرابط</h2>
   <p>iPhoneShwq.com</p>
 </div>
 
 <script>
-/* بعد 3 ثواني يروح من الشاشة السوداء */
+/* بعد 3 ثواني */
 setTimeout(() => {
   document.querySelector(".screen1").style.display = "none";
   document.getElementById("screen2").style.display = "flex";
 }, 3000);
 
-/* بعد 1.5 ثانية من التحميل ينتقل للشاشة الأخيرة */
+/* بعد 1.5 ثانية */
 setTimeout(() => {
   document.getElementById("screen2").style.display = "none";
   document.getElementById("screen3").style.display = "flex";
